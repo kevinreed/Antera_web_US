@@ -27,6 +27,10 @@ header {
 	margin-top: 12px;
 }
 
+.company {
+    font-size: 62px;
+}
+
 .navigation {
 	font-size: 22px;
 	text-align: right;
@@ -113,7 +117,7 @@ footer {
     background-attachment: scroll;
     background-clip: border-box;
     background-color: transparent;
-    background-image: url(/img/header.png);
+    /* background-image: url(/img/header.png); */
     background-size: auto;
     color: #222;
     display: block;

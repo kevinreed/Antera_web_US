@@ -5,19 +5,21 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 
 <head>
+    <title>Antera ventures</title>
 	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <!--<link rel="stylesheet" href="/css/compiled.css"/>-->
 
     <script src="/js/jquery-1.8.3.min.js" type="text/javascript"></script>
     <script src="/js/modernizr-2.5.3.min.js" type="text/javascript"></script>
-    <script src="/js/jquery.masonry.min.js" type="text/javascript"></script>
+
     <link href="/css/antera.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <header>
     <div class="logo">
-        Antera ventures
+        <span class="company">Antera</span> ventures
     </div>
     <div class="navigation">
         <a href="about">about</a> <em>/</em>
@@ -25,78 +27,30 @@
         <a href="people">people</a> <em>/</em>
         <a href="jobs">jobs</a> <em>/</em>
         <a href="blog">blog</a> <em>/</em>
-        <a href="contact">contact</a>
+        <a href="http://yahoo.com">contact</a>
     </div>
 </header>
 <section id="content">
 <div id="container" class="transitions-enabled clearfix">
-    <div class="masonry-brick">
-        <img class="block" src="/img/blog.jpg">
-        <div class="diamond"></div>
-        <h2><a href="http://feedproxy.google.com/~r/GoogleVenturesBlog/~3/vTWYih3IMzA/foundation-video-episode-23-with-ben-horowitz-of-andreessen-horowitz-2012-11-15">Foundation Video: Episode 23 with Ben Horowitz of Andreessen Horowitz</a></h2>
-        <p class="byline">Google Ventures Blog<br>Nov 15, 2012 &mdash; Kevin Rose</p>
+    <div class="box col1">
+        <p>Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula</p>
     </div>
 
-    <div id="mini-container" class="mini"></div>
+
+
+
+    <div class="box col1">
+        <p>adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.</p>
+    </div>
+
+    <div class="box col2">
+        <p>Sit amet mi ullamcorper vehicula</p>
+    </div>
+
+    <div class="box col1">
+        <p>Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+    </div>
 </section>
-<script>
-    $(function(){
-
-        var $container = $('#container');
-
-        $('#mini-container').masonry({
-            columnWidth: 50
-        });
-
-        $container.masonry({
-            itemSelector: '.item',
-            columnWidth: 240,
-            isAnimated: !Modernizr.csstransitions
-        });
-
-        // Sites using Masonry markup
-        var $sites = $('#sites'),
-                $loadingItem = $container.find('.loading');
-
-        var ajaxError = function(){
-            $loadingItem.text('Could not load examples :(');
-        };
-
-        // dynamically load sites using Masonry from Zootool
-        $.getJSON('http://zootool.com/api/users/items/?username=desandro' +
-                '&apikey=8b604e5d4841c2cd976241dd90d319d7' +
-                '&tag=bestofmasonry&callback=?')
-                .error( ajaxError )
-                .success(function( data ){
-
-                    // proceed only if we have data
-                    if ( !data || !data.length ) {
-                        ajaxError();
-                        return;
-                    }
-                    var items = [],
-                            item, datum;
-
-                    for ( var i=0, len = data.length; i < len; i++ ) {
-                        datum = data[i];
-                        item = '<div class="item example"><a href="' + datum.url + '">'
-                                + '<img src="' + datum.image.replace('/l.', '/m.') + '" />'
-                                + '<b>' + datum.title + '</b>'
-                                + '</a></div>';
-                        items.push( item );
-                    }
-
-                    var $items = $( items.join('') );
-                    $items.imagesLoaded(function(){
-                        $container
-                                .masonry( 'remove', $loadingItem ).masonry()
-                                .append( $items ).masonry( 'appended', $items, true );
-                    });
-
-                });
-
-    });
-</script>
 <footer>
     <div class="wrapper">
         <div class="container_12">
@@ -151,5 +105,17 @@
     </div>
 
 </footer>
+<script src="/js/jquery.masonry.min.js" type="text/javascript"></script>
+<script>
+    $(function(){
+
+        $('#container').masonry({
+            itemSelector: '.box',
+            columnWidth: 100,
+            isAnimated: true
+        });
+
+    });
+</script>
 </body>
 </html>
